@@ -1,0 +1,9 @@
+<h2>{{hero.name | lowercase}} Details</h2>
+<!-- 管道 是格式化字符串、金额、日期和其它显示数据的好办法, 相当与 JSP 的 fmt -->
+<div><span>id: </span>{{hero.id}}</div>
+<div><span>name: </span>{{hero.name}}</div>
+<div>
+    <label>name:
+      <input [(ngModel)]="hero.name" placeholder="name" />
+    </label>
+</div>

@@ -1,0 +1,52 @@
+1, 建立新的项目
+ng new angular-tour-of-heroes
+
+2, 启动项目
+cd angular-tour-of-heroes
+ng serve --open
+
+3, 绑定值
+在 ts 的属性里面，加上
+
+export class AppComponent {
+  title = 'Tour of Heroes';// 加在这里
+}
+
+于是在 HTML 上面就可以
+{{title}}
+
+4, 添加一个组件
+ng generate component heroes
+
+于是，CLI 创建了一个新的文件夹 src/app/heroes/，并生成了 HeroesComponent 的四个文件。
+heroes.component.html
+heroes.component.scss
+heroes.component.ts
+heroes.component.spec.ts
+
+5, 引用外界的类
+import { Component, OnInit } from '@angular/core';
+import { Hero } from '../hero';
+
+6, 声明一个对象
+  hero: Hero = {
+    id: 1,
+    name: 'Windstorm'
+  }
+
+7, 在 JSP 上面的 fmt 相当与 Angular 的管道这个概念
+DatePipe：根据本地环境中的规则格式化日期值。例如：                     | {{ hero.birthday | date:"MM/dd/yy" }}
+UpperCasePipe：把文本全部转换成大写。                               | {{hero.name | uppercase}}
+LowerCasePipe ：把文本全部转换成小写。                              | {{hero.name | lowercase}}
+CurrencyPipe ：把数字转换成货币字符串，根据本地环境中的规则进行格式化。   | {{ 123456 | currency }} 显示 $123,456.00
+DecimalPipe：把数字转换成带小数点的字符串，根据本地环境中的规则进行格式化。| {{ 123456 | number }}
+PercentPipe ：把数字转换成百分比字符串，根据本地环境中的规则进行格式化。  | {{hero.id | percent}}
+JsonPipe: 把一个值转换成 JSON 字符串格式。在调试时很有用。             | {{ hero | json }} // { "id": 1, "name": "Windstorm", "birthday": "2020-08-04T22:21:56.685Z" }
+
+8, 双向绑定变量
+<input [(ngModel)]="hero.name"/>
+前提：要假设背后的ts 文件有一个 hero 的对象
+使用步骤：
+1, 在app.module.ts 处引入
+import { FormsModule } from '@angular/forms';
+2, 在 imports 引入 FormsModule
