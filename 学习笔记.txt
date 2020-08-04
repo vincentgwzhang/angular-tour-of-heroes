@@ -50,3 +50,41 @@ JsonPipe: 把一个值转换成 JSON 字符串格式。在调试时很有用。 
 1, 在app.module.ts 处引入
 import { FormsModule } from '@angular/forms';
 2, 在 imports 引入 FormsModule
+
+9, for 循环
+<li *ngFor="let hero of heroes">
+注意：
+==> 不用引入其他。
+==> heroes 是背后的数组变量
+==> ngFor 是一个指令 (directive), 指令前面都是 *
+
+10, 绑定事件
+==> 在需要绑定的 html 元素的地方使用 (), 里面是要绑定的事件名称，例如 (click), 最后结果例如： (click)="onSelect(hero)"
+==> 在后台处，使用, 注意元素对应在函数的参数列表中
+  onSelect(hero: Hero) {
+    this.userSelectedHero = hero;
+    console.log(hero);
+  }
+
+11, ngIf 也是一个指令，是说判断这个后台 ts 使用的变量是否为 undefined 或者 null
+<div *ngIf="userSelectedHero">
+
+    <h2>{{userSelectedHero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{userSelectedHero.id}}</div>
+    <div>
+        <label>name:
+      <input [(ngModel)]="userSelectedHero.name" placeholder="name"/>
+    </label>
+    </div>
+
+</div>
+
+12, 模板语言
+===》 可以绑定 html 元素，并且赋值
+<button [disabled]="isUnchanged">Save</button> // 这里， disabled 就是属性值， isUnchanged 是后台的
+<div [ngClass]="{'special': isSpecial}"></div> // 这里， class    就是属性值， {'special': isSpecial} ==> isSpecial 是 ts 后台变量，如果为 true, 那么 add class 'special'
+<div [class.special]="isSpecial">Special</div> 这里，当 isSpecial 为真，那么 add 'special '这个 class
+<button [style.color]="isSpecial ? 'red' : 'green'"> 直接改变 style
+<img src="images/ng-logo.png" [src]="heroImageUrl">
+<button bind-disabled="isUnchanged" on-click="onSave($event)">Disabled Cancel</button>
+<button [disabled]="!canSave" (click)="onSave($event)">Enabled Save</button>
