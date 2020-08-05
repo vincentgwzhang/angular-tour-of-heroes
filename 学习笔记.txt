@@ -101,3 +101,17 @@ import { FormsModule } from '@angular/forms';
 然后在子类可以声明:
 input() item: <type>
 @Output() deleteRequest = new EventEmitter<string>();
+
+
+14, 创建 service:
+ng generate service hero
+
+15, 异步问题
+
+  getHeroes(): Observable<Hero[]> {
+    return of(HEROES);
+  }
+这里的 函数体内会用 httpClient 去获取远程数据，因此，结果应该加上 Observable<> 和 of()
+
+在使用的时候，将会是
+this.heroService.getHeroes().subscribe(result => this.heroes = result);

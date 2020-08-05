@@ -5,7 +5,7 @@ import { Component, OnInit, OnDestroy, AfterViewChecked, AfterViewInit, AfterCon
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnChanges, OnDestroy, AfterViewChecked, AfterViewInit, AfterContentChecked, AfterContentInit {
+export class AppComponent implements OnInit, OnDestroy, AfterViewChecked, AfterViewInit, AfterContentChecked, AfterContentInit {
   title = 'Tour of Heroes';
 
   ngOnInit(): void {// ngOnInit() 是一个生命周期钩子

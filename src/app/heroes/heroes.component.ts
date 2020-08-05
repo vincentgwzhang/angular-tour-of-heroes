@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HEROES } from '../mock-heroes';//可以引入类，也可以引入变量
+import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 import { Hero } from '../hero';
 
 @Component({
@@ -9,32 +10,24 @@ import { Hero } from '../hero';
 })
 export class HeroesComponent implements OnInit {
 
-  heroes = HEROES;
+  heroes: Hero[];
   userSelectedHero: Hero;
-
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
 
   onSelect(hero: Hero) {
     this.userSelectedHero = hero;
-    console.log(hero);
+    this.messageService.addMessage(`HeroesComponent: Selected hero id=${hero.id}`);
   }
 
-  constructor() { }
+  constructor(private heroService: HeroService, private messageService: MessageService) { }
 
   ngOnInit(): void {// ngOnInit() 是一个生命周期钩子
     //组件获取初始数据的好地方
+    this.getHeroes();
     console.log('HeroesComponent::ngOnInit function running');
   }
 
-  ngOnChanges(): void {
-    console.log('HeroesComponent::ngOnChanges function running');
-  }
-
-  ngOnDestroy(): void {
-    console.log('HeroesComponent::ngOnChanges function running');
+  getHeroes(): void {
+    this.heroService.getHeroes().subscribe(result => this.heroes = result);
   }
 
 }
