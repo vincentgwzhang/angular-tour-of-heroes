@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, OnDestroy, AfterViewChecked, AfterViewInit, AfterContentChecked, AfterContentInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewChecked, AfterViewInit, AfterContentChecked, AfterContentInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -27,10 +27,6 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy, AfterViewChec
 
   ngAfterViewChecked() {
     //console.log('Step 5: AppComponent::ngAfterViewChecked');// 当，类如双向绑定的时候就会触发
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log('AppComponent::ngOnChanges function running');
   }
 
   ngOnDestroy() {

@@ -88,3 +88,16 @@ import { FormsModule } from '@angular/forms';
 <img src="images/ng-logo.png" [src]="heroImageUrl">
 <button bind-disabled="isUnchanged" on-click="onSave($event)">Disabled Cancel</button>
 <button [disabled]="!canSave" (click)="onSave($event)">Enabled Save</button>
+
+13, component 传入一个参数
+
+====> @Input() hero: Hero;//此处的变量， hero, 对应下面的 hero
+====> 在调用处， <app-hero-detail [hero]="selectedHero"></app-hero-detail>//此处的 [hero], 对应上面的 hero
+
+
+一个简单的 input 和 output 之间的使用。在父类调用子类的地方：
+<app-input-output [item]="currentItem" (deleteRequest)="crossOffItem($event)"></app-input-output>
+这里， currentItem 来自于父类的变量, crossOffItem 来自于父类的函数。所以在父类的 crossOffItem 函数的 $event 就是 string, 这个是由于下面的子类 new EventEmitter<string>(); 决定的
+然后在子类可以声明:
+input() item: <type>
+@Output() deleteRequest = new EventEmitter<string>();

@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 
 //每个组件都必须声明在（且只能声明在）一个 NgModule 中。
 import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
+    HeroesComponent,
+    HeroDetailComponent,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
   ],
   imports: [
     BrowserModule,
