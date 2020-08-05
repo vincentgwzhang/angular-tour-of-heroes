@@ -124,3 +124,8 @@ ng generate module app-routing --flat --module=app
 
 17, 在html 文件转向： <a *ngFor="let hero of heroes" class="col-1-4" routerLink="/detail/{{hero.id}}">
 在 ts 文件转向: this.router.navigate(['/detail/' + hero.id, {}]);
+
+18, <li *ngFor="let hero of heroes$ | async" >
+
+这个意思是说， heroes 是一个 obserable 对象, 但是 let 不能直接读取， 所以要用 async 这个pipeline 去读取
+heroes$ 中的 $ 就是代表 heroes 是一个 Observable 对象, 等同于 heroes$: Observable<Hero[]>;
