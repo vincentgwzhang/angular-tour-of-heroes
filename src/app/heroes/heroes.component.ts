@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
 import { Hero } from '../hero';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-heroes',// 调用它，就是调用这个组建, <app-heroes></app-heroes>
@@ -11,14 +12,8 @@ import { Hero } from '../hero';
 export class HeroesComponent implements OnInit {
 
   heroes: Hero[];
-  userSelectedHero: Hero;
 
-  onSelect(hero: Hero) {
-    this.userSelectedHero = hero;
-    this.messageService.addMessage(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
-
-  constructor(private heroService: HeroService, private messageService: MessageService) { }
+  constructor(private heroService: HeroService, private messageService: MessageService, private router: Router) { }
 
   ngOnInit(): void {// ngOnInit() 是一个生命周期钩子
     //组件获取初始数据的好地方
@@ -28,6 +23,10 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes().subscribe(result => this.heroes = result);
+  }
+
+  clickedHero(hero: Hero) {
+    this.router.navigate(['/detail/' + hero.id, {}]);
   }
 
 }
