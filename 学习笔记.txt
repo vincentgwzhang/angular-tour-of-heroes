@@ -129,3 +129,63 @@ ng generate module app-routing --flat --module=app
 
 这个意思是说， heroes 是一个 obserable 对象, 但是 let 不能直接读取， 所以要用 async 这个pipeline 去读取
 heroes$ 中的 $ 就是代表 heroes 是一个 Observable 对象, 等同于 heroes$: Observable<Hero[]>;
+
+
+==============================================================================================================================
+
+以下是所有的知识细化
+
+==============================================================================================================================
+
+001, 当你通过 main.ts 中的 AppComponent 类启动时，Angular 在 index.html 中查找一个 <app-root> 元素， 然后实例化一个 AppComponent，并将其渲染到 <app-root> 标签中。
+
+002, 这是一种构造函数
+export class AppComponent {
+  title: string;
+  myHero: string;
+
+  constructor() {
+    this.title = 'Tour of Heroes';
+    this.myHero = 'Windstorm';
+  }
+}
+
+export class Hero {
+  constructor(
+    public id: number,
+    public name: string) { }
+}
+
+
+003 在 HTML 页面里面
+<input type="text" value="Sarah" #bindingInput></label>
+
+在后台:
+@ViewChild('bindingInput') bindingInput: ElementRef;// 这里代表一个控件，例如 input
+
+由次可以得到
+this.bindingInput.nativeElement.getAttribute('value') // 用于是 Sarah
+this.bindingInput.nativeElement.value // 当即表示的值
+
+但是，也可以不申明例如下面的例子：
+let testButton = <HTMLInputElement> document.getElementById('testButton');
+然后可以直接控制:
+testButton.disabled = !testButton.disabled;
+console.warn(testButton.disabled);
+
+004, HTML attribute 和 DOM 的 property 的设置
+
+===><input [disabled]="condition ? true : false"> // 这里绑定的是 property. 只有该 HTML 拥有该 property 才能改变。
+===><input [AABBCCC]="condition ? true : false"> 这就不行了, 出错 Can't bind to 'AABBCCC' since it isn't a known property of 'button'.
+即使改变成这样，也是不行的： <button id="testButton" (click)="working()" AABBCCC='{{isDisabled}}'>Test Button</button>
+
+解决方法:
+<button id="testButton" (click)="working()" [attr.AABBCCC]='isDisabled'>Test Button</button>
+
+003, 更多的绑定法则：
+<button [attr.aria-label]="help">help</button>
+<div [class.special]="isSpecial">Special</div> //这个special 是个类
+<button [style.color]="isSpecial ? 'red' : 'green'"> // 这里是直接设置 style
+
+<button (click)="onSave($event)">Save</button>
+<button on-click="onSave($event)">on-click Save</button>

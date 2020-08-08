@@ -13,6 +13,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule }    from '@angular/common/http';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { Lesson1Component } from './lesson1/lesson1.component';
+import { Lesson2Component } from './lesson2/lesson2.component';
+import { StringInitComponent } from './lesson2/string-init/string-init.component';
+import { ItemDetailComponent } from './lesson2/item-detail/item-detail.component';
+import { ItemListComponent } from './lesson2/item-list/item-list.component';
+import { Lesson3Component } from './lesson3/lesson3.component';
+import { Lesson3ItemDetailComponent } from './lesson3/lesson3-item-detail/lesson3-item-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +28,14 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
+    HeroSearchComponent,
+    Lesson1Component,
+    Lesson2Component,
+    StringInitComponent,
+    ItemDetailComponent,
+    ItemListComponent,
+    Lesson3Component,
+    Lesson3ItemDetailComponent,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
   ],
   imports: [
     BrowserModule,
