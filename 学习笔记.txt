@@ -189,3 +189,115 @@ console.warn(testButton.disabled);
 
 <button (click)="onSave($event)">Save</button>
 <button on-click="onSave($event)">on-click Save</button>
+
+004, 关于双向绑定.
+
+----------------------------------------------------------------------------------------------------------------------
+对于 父 - 子 关系
+看下面在父html 中的写法:
+<app-sizer [(size)]="fontSizePx"></app-sizer>
+其实这写当于:
+<app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"></app-sizer>
+所以，
+<input [(ngModel)]="currentItem.name" id="example-change"> 相当于
+<input [ngModel]="currentItem.name" (ngModelChange)="currentItem.name=$event" id="example-change">
+
+
+
+
+是一种简写，也就是说， assume 子compoennt 中拥有一个 @input() size, 和一个 @Output() sizeChange = new EventEmitter<number>();
+并且当 this.sizeChange.emit(this.size); 的时候，自动执行 fontSizePx=$event
+----------------------------------------------------------------------------------------------------------------------
+对于自己:
+<label>FontSize (px): <input [(ngModel)]="fontSizePx"></label>
+以下四种情况得到的结果是一样的：
+<input [value]="currentItem.name" (input)="currentItem.name=$event.target.value" id="without">
+<input [(ngModel)]="currentItem.name" id="example-ngModel">
+<input bindon-ngModel="currentItem.name" id="example-bindon">
+<input [ngModel]="currentItem.name" (ngModelChange)="currentItem.name=$event" id="example-change">
+
+
+005, *ngFor 具体应用
+<div *ngFor="let item of items; let i=index">{{i + 1}} - {{item.name}}</div>
+
+
+006 以下是关于 form 的操作
+
+在html 页面，如下所示
+<form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+  <label for="name">Name <input class="form-control" name="name" ngModel required /></label>
+  <button type="submit">Submit</button>
+</form>
+
+<div [hidden]="!itemForm.form.valid">
+  <p>{{ submitMessage }}</p>
+</div>
+
+<p>JSON: {{ itemForm.form.value | json }}</p> // 立即显示
+
+在 ts 文件
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  @ViewChild('itemForm') form: NgForm;
+
+  private _submitMessage = '';
+
+  get submitMessage() {
+    return this._submitMessage;
+  }
+
+  onSubmit(form: NgForm) {
+    this._submitMessage = 'Submitted. Form value is ' + JSON.stringify(form.value);
+  }
+
+}
+
+==========================================================================================================================
+007 常用 event 绑定函数写法
+
+HTML:
+<input (keyup)="onKey($event)">
+TS:
+onKey(event: KeyboardEvent) { // with type info
+  this.values += (event.target as HTMLInputElement).value + ' | ';
+}
+
+<input #box (keyup)="0"> 这句话呢，就是 keyup 不做任何事情，只是起到触发更新视图的作用
+<input #box (keyup.enter)="onEnter(box.value)"> 只有按回车键的时候才会起作用
+
+==========================================================================================================================
+
+009, 制造属性性指令
+ng generate directive highlight
+
+在ts 文件里面：
+import { Directive, ElementRef } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+    constructor(el: ElementRef) {
+       el.nativeElement.style.backgroundColor = 'yellow';
+    }
+}
+
+在要使用的地方：
+<p appHighlight>Highlight me!</p>// 系统检测到 appHighlight 就自动使用该属性
+
+
+
+
+
+
+999 一些奇怪的用法
+<p>The item's undeclared best by date is: {{$any(this).bestByDate}}</p>
+<p>The item's undeclared best by date is: {{$any(item).bestByDate}}</p>

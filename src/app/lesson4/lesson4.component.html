@@ -1,0 +1,65 @@
+<h4 id="ngFor-trackBy">*ngFor trackBy</h4>
+<button (click)="resetList()">Reset items</button>
+<button (click)="changeIds()">Change ids</button>
+<button (click)="clearTrackByCounts()">Clear counts</button>
+
+<p><i>without</i> trackBy</p>
+<div class="box">
+    <div #noTrackBy *ngFor="let item of items">({{item.id}}) {{item.name}}</div>
+
+    <div id="noTrackByCnt" *ngIf="itemsNoTrackByCount">
+        Item DOM elements change #{{itemsNoTrackByCount}} without trackBy
+    </div>
+</div>
+
+<p>with trackBy</p>
+<div class="box">
+    <div #withTrackBy *ngFor="let item of items; trackBy: trackByItems">({{item.id}}) {{item.name}}</div>
+
+    <div id="withTrackByCnt" *ngIf="itemsWithTrackByCount">
+        Item DOM elements change #{{itemsWithTrackByCount}} with trackBy
+    </div>
+</div>
+
+<br><br><br>
+
+<p>with trackBy and <i>semi-colon</i> separator</p>
+<div class="box">
+    <div *ngFor="let item of items; trackBy: trackByItems">
+        ({{item.id}}) {{item.name}}
+    </div>
+</div>
+
+<p>with trackBy and <i>comma</i> separator</p>
+<div class="box">
+    <div *ngFor="let item of items, trackBy: trackByItems">({{item.id}}) {{item.name}}</div>
+</div>
+
+<p>with trackBy and <i>space</i> separator</p>
+<div class="box">
+    <div *ngFor="let item of items trackBy: trackByItems">({{item.id}}) {{item.name}}</div>
+</div>
+
+<p>with <i>generic</i> trackById function</p>
+<div class="box">
+    <div *ngFor="let item of items, trackBy: trackById">({{item.id}}) {{item.name}}</div>
+</div>
+
+<hr>
+<h2>NgSwitch Binding</h2>
+
+<p>Pick your favorite item</p>
+<div>
+    <label *ngFor="let i of items">
+    <div><input type="radio" name="items" [(ngModel)]="currentItem" [value]="i">{{i.name}}
+    </div>
+  </label>
+</div>
+
+<ul [ngSwitch]="currentItem.feature">
+    <li *ngSwitchCase="'stout'">Hello stout</li>
+    <li *ngSwitchCase="'slim'">Hello slim</li>
+    <li *ngSwitchCase="'vintage'">Hello vintage</li>
+    <li *ngSwitchCase="'bright'">Hello bright</li>
+    <li *ngSwitchDefault>Bye Bye</li>
+</ul>
