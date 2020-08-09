@@ -293,6 +293,30 @@ export class HighlightDirective {
 在要使用的地方：
 <p appHighlight>Highlight me!</p>// 系统检测到 appHighlight 就自动使用该属性
 
+==========================================================================================================================
+
+010 *ngIf
+
+*ngIf 其实是简写，详细的是:
+<ng-template [ngIf]="hero">
+  <div class="name">{{hero.name}}</div>
+</ng-template>
+下面的写法是一样的:
+======================================================
+<ng-template [ngIf]="hero">
+  <div class="name">{{hero.name}}</div>
+</ng-template>
+======================================================
+<div class="name" *ngIf="hero">{{hero.name}}</div>
+======================================================
+
+
+
+011, <ng-container>
+如果实在没有办法，又要求使用 ngIf 的时候，可以这样
+
+<ng-container *ngIf='true'> 这个ng-container 不会显示
+</ng-container>
 
 
 
