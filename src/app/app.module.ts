@@ -23,6 +23,9 @@ import { Lesson3ItemDetailComponent } from './lesson3/lesson3-item-detail/lesson
 import { Lesson4Component } from './lesson4/lesson4.component';
 import { Lesson5Component } from './lesson5/lesson5.component';
 import { HighlightDirective } from './lesson5/highlight.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DevUIModule } from 'ng-devui';
+import { DevuiComponent } from './devui/devui.component';
 
 @NgModule({
   declarations: [
@@ -41,13 +44,16 @@ import { HighlightDirective } from './lesson5/highlight.directive';
     Lesson3ItemDetailComponent,
     Lesson4Component,
     Lesson5Component,
-    HighlightDirective,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
+    HighlightDirective,
+    DevuiComponent,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    DevUIModule
   ],
   providers: [],
   bootstrap: [AppComponent]

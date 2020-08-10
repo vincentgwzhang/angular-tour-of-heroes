@@ -1,0 +1,87 @@
+<section>
+    <div class="btn-group">
+        <d-button icon="icon-add" bsStyle="primary">
+            新建
+        </d-button>
+        <d-button icon="icon-filter" bsStyle="common">
+            过滤
+        </d-button>
+    </div>
+    <div class="btn-group">
+        <d-button icon="icon-add" bsStyle="primary" [disabled]="true">
+            新建禁用
+        </d-button>
+        <d-button icon="icon-filter" bsStyle="common" [disabled]="true">
+            过滤禁用
+        </d-button>
+    </div>
+    <div class="btn-group">
+        <d-button icon="icon-connect" bsStyle="text-dark" style="margin-right: 20px;">
+            关联
+        </d-button>
+        <d-button icon="icon-run" bsStyle="text-dark">
+            执行
+        </d-button>
+    </div>
+    <div class="btn-group">
+        <d-button icon="icon-connect" bsStyle="text-dark" style="margin-right: 20px;" [disabled]="true">
+            关联禁用
+        </d-button>
+        <d-button icon="icon-run" bsStyle="text-dark" [disabled]="true">
+            执行禁用
+        </d-button>
+    </div>
+    <div class="btn-group">
+        <d-button icon="icon-add" bsStyle="text-dark" title="添加"></d-button>
+        <d-button icon="icon-delete" bsStyle="text-dark" title="删除"></d-button>
+    </div>
+    <div class="btn-group">
+        <d-button icon="icon-add" bsStyle="text-dark" [disabled]="true" title="添加禁用"></d-button>
+        <d-button icon="icon-delete" bsStyle="text-dark" [disabled]="true" title="删除禁用"></d-button>
+    </div>
+</section>
+
+<section>
+    <h5 class="text-muted">小尺寸</h5>
+    <d-search style="width: 200px;" [size]="'sm'" (searchFn)="onSearch($event)"></d-search>
+    <h5 class="text-muted">标准尺寸</h5>
+    <d-search [isKeyupSearch]="true" (searchFn)="onSearch($event)"></d-search>
+    <h5 class="text-muted">大尺寸</h5>
+    <d-search [size]="'lg'" (searchFn)="onSearch($event)"></d-search>
+    <h5 class="text-muted">禁用</h5>
+    <d-search [isKeyupSearch]="true" (searchFn)="onSearch($event)" [disabled]="true"></d-search>
+    <h5 class="text-muted">搜索图标左置</h5>
+    <d-search [iconPosition]="'left'" [isKeyupSearch]="true" (searchFn)="onSearch($event)"></d-search>
+</section>
+
+<section>
+    <h4>基本样式</h4>
+    <div>
+        <d-toggle></d-toggle>
+        <d-toggle [checked]="true"></d-toggle>
+    </div>
+
+    <h4>禁用状态</h4>
+    <div>
+        <d-toggle disabled [size]="'small'"></d-toggle>
+        <d-toggle [checked]="true" [disabled]="true" [size]="'small'"></d-toggle>
+    </div>
+
+    <h4>双向绑定</h4>
+    <div>
+        <d-toggle [(ngModel)]="enable" [beforeChange]="beforeChange" (change)="onChange2($event)" [size]="'medium'"></d-toggle>
+        {{ enable }}
+    </div>
+
+    <h4>回调事件</h4>
+    <div>
+        <d-toggle (change)="onChange($event)" [size]="'large'"></d-toggle>
+        <div>Change count: {{ count }}</div>
+    </div>
+
+    <h4>自定义样式</h4>
+    <div>
+        <d-toggle [checked]="true" [size]="'medium'" [color]="'#FECC55'"></d-toggle>
+    </div>
+
+</section>

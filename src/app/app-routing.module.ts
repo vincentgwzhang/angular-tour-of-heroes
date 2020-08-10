@@ -8,6 +8,7 @@ import { Lesson2Component } from './lesson2/lesson2.component';
 import { Lesson3Component } from './lesson3/lesson3.component';
 import { Lesson4Component } from './lesson4/lesson4.component';
 import { Lesson5Component } from './lesson5/lesson5.component';
+import { DevuiComponent } from './devui/devui.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'lesson3', component: Lesson3Component },
   { path: 'lesson4', component: Lesson4Component },
   { path: 'lesson5', component: Lesson5Component },
+  { path: 'devui', component: DevuiComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
 ];
 

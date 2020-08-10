@@ -318,7 +318,7 @@ export class HighlightDirective {
 <ng-container *ngIf='true'> 这个ng-container 不会显示
 </ng-container>
 
-
+012, 要善用OnChanges, 就是当父类传入到子类的变量改变的时候，就会出发ngOnChanges函数
 
 
 
