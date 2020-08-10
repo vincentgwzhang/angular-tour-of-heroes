@@ -23,6 +23,8 @@ import { Lesson3ItemDetailComponent } from './lesson3/lesson3-item-detail/lesson
 import { Lesson4Component } from './lesson4/lesson4.component';
 import { Lesson5Component } from './lesson5/lesson5.component';
 import { HighlightDirective } from './lesson5/highlight.directive';
+import { Lesson6ParentComponent } from './lesson6/lesson6-parent/lesson6-parent.component';
+import { Lesson6ChildComponent } from './lesson6/lesson6-child/lesson6-child.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { HighlightDirective } from './lesson5/highlight.directive';
     Lesson3ItemDetailComponent,
     Lesson4Component,
     Lesson5Component,
-    HighlightDirective,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
+    HighlightDirective,
+    Lesson6ParentComponent,
+    Lesson6ChildComponent,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
   ],
   imports: [
     BrowserModule,

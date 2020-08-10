@@ -1,0 +1,5 @@
+<p>Try to control child component function and get its variable</p>
+<p>Child value: {{child.counter}}</p>
+<input type="text" #msgInput />
+<button (click)='child.method1(msgInput.value)'>Add one message</button>
+<app-lesson6-child #child></app-lesson6-child>
