@@ -27,6 +27,10 @@ import { Lesson6ParentComponent } from './lesson6/lesson6-parent/lesson6-parent.
 import { Lesson6ChildComponent } from './lesson6/lesson6-child/lesson6-child.component';
 import { AstronautComponent } from './lesson7/astronaut/astronaut.component';
 import { MissionControlComponent } from './lesson7/mission-control/mission-control.component';
+import { C1Component } from './lesson8/c1/c1.component';
+import { C2Component } from './lesson8/c2/c2.component';
+import { BannerComponent } from './lesson8/banner/banner.component';
+import { AdDirective } from './lesson8/ad.directive';
 
 @NgModule({
   declarations: [
@@ -49,7 +53,11 @@ import { MissionControlComponent } from './lesson7/mission-control/mission-contr
     Lesson6ParentComponent,
     Lesson6ChildComponent,
     AstronautComponent,
-    MissionControlComponent,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
+    MissionControlComponent,
+    C1Component,
+    C2Component,
+    BannerComponent,
+    AdDirective,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
   ],
   imports: [
     BrowserModule,

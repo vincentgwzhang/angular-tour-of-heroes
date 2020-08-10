@@ -10,6 +10,7 @@ import { Lesson4Component } from './lesson4/lesson4.component';
 import { Lesson5Component } from './lesson5/lesson5.component';
 import { Lesson6ParentComponent } from './lesson6/lesson6-parent/lesson6-parent.component';
 import { MissionControlComponent } from './lesson7/mission-control/mission-control.component';
+import { BannerComponent } from './lesson8/banner/banner.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'lesson5', component: Lesson5Component },
   { path: 'lesson6', component: Lesson6ParentComponent },
   { path: 'lesson7', component: MissionControlComponent },
+  { path: 'lesson8', component: BannerComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
 ];
 
