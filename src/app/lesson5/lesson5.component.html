@@ -6,14 +6,8 @@
     <input type="radio" name="colors" (click)="color='yellow'">Yellow
     <input type="radio" name="colors" (click)="color='cyan'">Cyan
 </div>
-<p [appHighlight]="color">Highlight me!</p>
-
-<p [appHighlight]="color" defaultColor="violet">
-    Highlight me too!
-</p>
-
-<hr>
-<p><i>Mouse over the following lines to see fixed highlights</i></p>
-
-<p [appHighlight]="'yellow'">设置为[appHighlight]="'yellow'",注意双引号里面还有单引号 </p>
-<p appHighlight="orange">设置为 appHighlight="orange"</p>
+<p appHighlight>默认是红色</p>
+<p appHighlight highlightColor="{{color}}">Change color according above radio selection 1</p>
+<p appHighlight [highlightColor]="color">Change color according above radio selection 2</p>
+<p appHighlight defaultColor="blue">Highlight me too!</p>
+<p [appHighlight]="'purple'">Special Color set</p>

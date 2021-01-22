@@ -9,10 +9,12 @@ export class HighlightDirective {
 
   @Input() defaultColor: string;
 
-  @Input('appHighlight') highlightColor: string;// 这里很很很重要， selector === inpu === 'appHighlight'
+  @Input('appHighlight') specialColor: string;
+
+  @Input('highlightColor') highlightColor: string;// 这里很很很重要， selector === inpu === 'appHighlight'
 
   @HostListener('mouseenter') onMouseEnter() {
-    this.highlight(this.highlightColor || this.defaultColor || 'red');
+    this.highlight(this.specialColor || this.highlightColor || this.defaultColor || 'red');
   }
 
   @HostListener('mouseleave') onMouseLeave() {
