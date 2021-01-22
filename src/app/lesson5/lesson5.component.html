@@ -10,4 +10,4 @@
 <p appHighlight highlightColor="{{color}}">Change color according above radio selection 1</p>
 <p appHighlight [highlightColor]="color">Change color according above radio selection 2</p>
 <p appHighlight defaultColor="blue">Highlight me too!</p>
-<p [appHighlight]="'purple'">Special Color set</p>
+<p ngNonBindable [appHighlight]="'purple'">Special Color set, evaluation of {{1 + 1}}</p>

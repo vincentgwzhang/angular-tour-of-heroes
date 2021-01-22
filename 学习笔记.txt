@@ -319,7 +319,8 @@ export class HighlightDirective {
 </ng-container>
 
 
-
+012, <p ngNonBindable></p>
+在页面显示 {{1+1}}的时候，如果什么都不用，就会显示为2, 如果用了ngNonBindable,就显示{{1+1}}
 
 
 999 一些奇怪的用法
