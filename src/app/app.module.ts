@@ -33,6 +33,9 @@ import { BannerComponent } from './lesson8/banner/banner.component';
 import { AdDirective } from './lesson8/ad.directive';
 import { ClickDirective } from './lesson3/click.directive';
 import { UnlessDirective } from './lesson5/unless.directive';
+import { NestRouteComponent } from './lesson9/nest-route/nest-route.component';
+import { SubRount1Component } from './lesson9/sub-rount1/sub-rount1.component';
+import { SubRount2Component } from './lesson9/sub-rount2/sub-rount2.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,10 @@ import { UnlessDirective } from './lesson5/unless.directive';
     BannerComponent,
     AdDirective,
     ClickDirective,
-    UnlessDirective,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
+    UnlessDirective,
+    NestRouteComponent,
+    SubRount1Component,
+    SubRount2Component,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
   ],
   imports: [
     BrowserModule,
