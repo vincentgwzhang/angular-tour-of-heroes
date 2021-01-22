@@ -15,7 +15,10 @@
     <h3>$event and event handling statements</h3>
     <h4>Result: {{currentItem.name}}</h4>
 
-    <input [value]="currentItem.name" (input)="currentItem.name=$event.target.value"> without NgModel
+    <p>双向绑定的三种形式</p>
+    <input [value]="currentItem.name" (input)="currentItem.name=$event.target.value"> without NgModel<br />
+    <input bindon-ngModel="currentItem.name"> bindon-ngModel<br />
+    <input [(ngModel)]="currentItem.name"> [(ngModel)]
 </div>
 
 <div class="group">
