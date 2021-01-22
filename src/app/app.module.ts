@@ -32,6 +32,7 @@ import { C2Component } from './lesson8/c2/c2.component';
 import { BannerComponent } from './lesson8/banner/banner.component';
 import { AdDirective } from './lesson8/ad.directive';
 import { ClickDirective } from './lesson3/click.directive';
+import { UnlessDirective } from './lesson5/unless.directive';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ClickDirective } from './lesson3/click.directive';
     C2Component,
     BannerComponent,
     AdDirective,
-    ClickDirective,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
+    ClickDirective,
+    UnlessDirective,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
   ],
   imports: [
     BrowserModule,
