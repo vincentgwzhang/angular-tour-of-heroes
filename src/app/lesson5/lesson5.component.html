@@ -11,3 +11,9 @@
 <p appHighlight [highlightColor]="color">Change color according above radio selection 2</p>
 <p appHighlight defaultColor="blue">Highlight me too!</p>
 <p ngNonBindable [appHighlight]="'purple'">Special Color set, evaluation of {{1 + 1}}</p>
+
+<select [(ngModel)]="hero" (change)='onChangeSelect()' #customSelect>
+    <ng-container *ngFor="let h of heroes">
+        <option [ngValue]="h">{{h.name}}</option>
+    </ng-container>
+</select>
