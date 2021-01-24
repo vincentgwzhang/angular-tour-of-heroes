@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NestRouteComponent } from './nest-route.component';
 
@@ -6,7 +6,7 @@ describe('NestRouteComponent', () => {
   let component: NestRouteComponent;
   let fixture: ComponentFixture<NestRouteComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NestRouteComponent ]
     })
