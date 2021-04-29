@@ -27,7 +27,8 @@ export class Lesson1Component implements OnInit {
   }
 
   working(): any {
-    console.warn('Test Button works!');
+    let testButton = <HTMLInputElement> document.getElementById('testButton');
+    console.log(testButton.getAttribute('AAVV'));
   }
 
   toggleDisabled(): any {

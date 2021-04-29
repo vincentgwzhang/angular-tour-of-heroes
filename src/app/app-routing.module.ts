@@ -14,6 +14,7 @@ import { BannerComponent } from './lesson8/banner/banner.component';
 import { NestRouteComponent } from './lesson9/nest-route/nest-route.component';
 import { SubRount1Component } from './lesson9/sub-rount1/sub-rount1.component';
 import { SubRount2Component } from './lesson9/sub-rount2/sub-rount2.component';
+import { I18nComponent } from './lesson10/i18n/i18n.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -46,6 +47,7 @@ const routes: Routes = [
       }
     ]
   },
+  { path: 'lesson10', component: I18nComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
 ];
 

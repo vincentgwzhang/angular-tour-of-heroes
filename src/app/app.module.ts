@@ -36,6 +36,7 @@ import { UnlessDirective } from './lesson5/unless.directive';
 import { NestRouteComponent } from './lesson9/nest-route/nest-route.component';
 import { SubRount1Component } from './lesson9/sub-rount1/sub-rount1.component';
 import { SubRount2Component } from './lesson9/sub-rount2/sub-rount2.component';
+import { I18nComponent } from './lesson10/i18n/i18n.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { SubRount2Component } from './lesson9/sub-rount2/sub-rount2.component';
     UnlessDirective,
     NestRouteComponent,
     SubRount1Component,
-    SubRount2Component,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
+    SubRount2Component,
+    I18nComponent,//每个组件都必须声明在（且只能声明在）一个 NgModule 中。
   ],
   imports: [
     BrowserModule,

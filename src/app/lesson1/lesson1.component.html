@@ -33,7 +33,7 @@
         <h3>Disabled property vs. attribute</h3>
         <p>Use the inspector to see the Test Button work and its disabled property toggle.</p>
         <div>
-            <button id="testButton" (click)="working()" [attr.AAVV]='isDisabled'>Test Button</button>
+            <button id="testButton" (click)="working()" [attr.AAVV]='"abc"'>Test Button</button>
         </div>
         <div>
             <button (click)="toggleDisabled()">Toggle disabled property for Test Button</button>
